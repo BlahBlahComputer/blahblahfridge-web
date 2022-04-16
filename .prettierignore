@@ -1,0 +1,20 @@
+# Ignore artifacts:
+build
+coverage
+public
+node_modules
+
+.vscode
+.husky
+.eslintcache
+.env
+.DS_store
+schema.json
+*.md
+*.log
+*.pdf
+*.html
+*.json
+*.lock
+
+*.config.js

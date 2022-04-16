@@ -1,0 +1,10 @@
+node_modules
+build
+public
+
+.circleci
+.github
+.husky
+
+package-lock.json
+*.config.js
