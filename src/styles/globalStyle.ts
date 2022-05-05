@@ -10,6 +10,10 @@ const GlobalStyle = createGlobalStyle`
     * {
         box-sizing: border-box;
     }
+    body {
+        font-family: 'Black Han Sans', sans-serif;
+        font-size: 14px;
+    }
 `
 
 export default GlobalStyle
