@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="javascript:kakaoLogin();"><img src="https://mindhub.kr/_nuxt/img/ec41fe9.png"
+            style="height:80px;width:auto"></a>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>
+        window.Kakao.init("24e7feb795c0577d93fdca9209a9680c");
+
+        function kakaoLogin() {
+            window.Kakao.Auth.login({
+                scope: 'profile_nickname, account_email',
+                success: function (authObj) {
+                    console.log(authObj);
+                    window.Kakao.API.request({
+                        url: '/v2/user/me',
+                        success: res => {
+                            const kakao_account = res.kakao_account;
+                            console.log(kakao_account);
+                        }
+                    });
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>
