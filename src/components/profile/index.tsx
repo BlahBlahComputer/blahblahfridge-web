@@ -20,11 +20,7 @@ function Profile() {
 
       <TitleContainer>
         <NameText>이름</NameText>
-        <Name
-          onClick={() => {
-            alert('닉네임 작성');
-          }}
-        />
+        <Name />
       </TitleContainer>
 
       <Start
@@ -57,7 +53,7 @@ const NameText = styled.span`
   word-break: keep-all;
 `;
 
-const Name = styled.div`
+const Name = styled.input`
   display: flex;
   width: 300px;
   height: 30px;
@@ -73,6 +69,10 @@ const Name = styled.div`
   justify-self: center;
 
   flex-direction: column;
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 const Start = styled.div`

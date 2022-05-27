@@ -79,7 +79,7 @@ const ImageContainer = styled.div<{
   background-size: cover;
 
   width: 100%;
-  height: 500px;
+  height: 490px;
 
   align-items: center;
 
