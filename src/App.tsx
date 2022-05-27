@@ -1,4 +1,5 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import { useState } from 'react';
 
 import Start from '#/components/start';
 import Login from '#/components/login';
@@ -7,7 +8,11 @@ import Welcome from '#/components/welcome';
 import KakaoCallback from '#/components/kakaocallback';
 import NaverCallback from '#/components/navercallback';
 
+import MainContainer from './components/MainContainer';
+
 function App() {
+  const [isAuth, setIsAuth] = useState(true);
+
   return (
     <BrowserRouter>
       <Routes>
@@ -28,6 +33,9 @@ function App() {
       <Routes>
         <Route path="/navercallback" element={<NaverCallback />} />
       </Routes>
+        <Routes>
+          <Route path="/" element={<MainContainer />} />
+        </Routes>
     </BrowserRouter>
   );
 }
