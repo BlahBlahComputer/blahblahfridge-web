@@ -9,15 +9,37 @@ function Login() {
         <Title>내 냉장고..어쩌지?</Title>
         <img src={Logo} alt="logo" className="logo" />
       </TitleContainer>
-      <TopSquare />
-      <BottomSquare />
+      <TopSquare
+        onClick={() => {
+          alert('KAKAO');
+        }}
+      >
+        <ButtonLayout>네이버로 시작~</ButtonLayout>
+      </TopSquare>
+      <BottomSquare
+        onClick={() => {
+          alert('NAVER');
+        }}
+      >
+        <ButtonLayout>카카오로 시작~</ButtonLayout>
+      </BottomSquare>
     </LoginContainer>
   );
 }
 
+const ButtonLayout = styled.div`
+  display: flex;
+
+  align-items: center;
+  justify-self: center;
+  margin: auto;
+
+  font-size: 1.4rem;
+`;
+
 const TopSquare = styled.div`
   display: flex;
-  width: 700px;
+  max-width: 100%;
   height: 500px;
 
   border-style: solid;
@@ -29,11 +51,13 @@ const TopSquare = styled.div`
   margin-top: 50px;
   margin-left: 30px;
   margin-right: 30px;
+
+  flex-direction: column;
 `;
 
 const BottomSquare = styled.div`
   display: flex;
-  width: 700px;
+  max-width: 100%;
   height: 500px;
   background-color: gold;
 
@@ -46,6 +70,8 @@ const BottomSquare = styled.div`
   margin-bottom: 50px;
   margin-right: 30px;
   margin-left: 30px;
+
+  flex-direction: column;
 `;
 
 const LoginContainer = styled.div`
