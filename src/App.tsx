@@ -9,9 +9,13 @@ import KakaoCallback from '#/components/kakaocallback';
 import NaverCallback from '#/components/navercallback';
 
 import MainContainer from './components/MainContainer';
+import TopBar from './components/Topbar';
 
 function App() {
   const [isAuth, setIsAuth] = useState(true);
+  const [imageUrl, setImageUrl] = useState(
+    'https://m.nongmin.com/upload/bbs/202108/20210821005357060/20210821005357060.jpg',
+  );
 
   return (
     <BrowserRouter>
@@ -34,8 +38,17 @@ function App() {
         <Route path="/navercallback" element={<NaverCallback />} />
       </Routes>
         <Routes>
-          <Route path="/" element={<MainContainer />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
+      )}
+      {isAuth && (
+        <>
+          <TopBar imageUrl={imageUrl} />
+          <Routes>
+            <Route path="/" element={<MainContainer />} />
+          </Routes>
+        </>
+      )}
     </BrowserRouter>
   );
 }

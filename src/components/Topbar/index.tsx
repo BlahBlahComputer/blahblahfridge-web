@@ -28,9 +28,14 @@ const TopBarLayout = styled.div`
   flex-direction: row;
 
   position: sticky;
+  top: 0px;
+  margin-top: 30px;
   align-items: center;
 
   justify-content: space-between;
+
+  background: white;
+  z-index: 9999;
 `;
 
 const BackArea = styled.div`

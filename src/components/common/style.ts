@@ -9,4 +9,6 @@ export const PageContainer = styled.div`
   max-width: 768px;
   height: 100vh;
   user-select: 'none';
+
+  padding: 0 30px;
 `;
