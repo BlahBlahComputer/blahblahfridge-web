@@ -2,6 +2,7 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom';
 
 import Login from '#/components/login';
 import Profile from '#/components/profile';
+import Welcome from '#/components/welcome';
 
 function App() {
   return (
@@ -11,6 +12,9 @@ function App() {
       </Routes>
       <Routes>
         <Route path="/profile" element={<Profile />} />
+      </Routes>
+      <Routes>
+        <Route path="/welcome" element={<Welcome />} />
       </Routes>
     </BrowserRouter>
   );
