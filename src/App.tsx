@@ -4,6 +4,8 @@ import Start from '#/components/start';
 import Login from '#/components/login';
 import Profile from '#/components/profile';
 import Welcome from '#/components/welcome';
+import KakaoCallback from '#/components/kakaocallback';
+import NaverCallback from '#/components/navercallback';
 
 function App() {
   return (
@@ -19,6 +21,12 @@ function App() {
       </Routes>
       <Routes>
         <Route path="/welcome" element={<Welcome />} />
+      </Routes>
+      <Routes>
+        <Route path="/kakaocallback" element={<KakaoCallback />} />
+      </Routes>
+      <Routes>
+        <Route path="/navercallback" element={<NaverCallback />} />
       </Routes>
     </BrowserRouter>
   );

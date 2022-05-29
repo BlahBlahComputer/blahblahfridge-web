@@ -12,17 +12,19 @@ function Login() {
       </TitleContainer>
       <TopSquare
         onClick={() => {
-          alert('KAKAO');
+          window.location.href =
+            'https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=oANn_XItQT8dwVAmksWz&state=blah&redirect_uri=http://localhost:3000/navercallback';
         }}
       >
-        <ButtonLayout>네이버로 시작~</ButtonLayout>
+        <ButtonLayout>네이버로 시작하기</ButtonLayout>
       </TopSquare>
       <BottomSquare
         onClick={() => {
-          alert('NAVER');
+          window.location.href =
+            'https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=0bc3192a45ac1d9e2f8c80f9ae7dc2b2&redirect_uri=http://localhost:3000/kakaocallback';
         }}
       >
-        <ButtonLayout>카카오로 시작~</ButtonLayout>
+        <ButtonLayout>카카오로 시작하기</ButtonLayout>
       </BottomSquare>
     </LoginContainer>
   );
@@ -35,13 +37,14 @@ const ButtonLayout = styled.div`
   justify-self: center;
   margin: auto;
 
-  font-size: 1.4rem;
+  font-size: 2rem;
 `;
 
 const TopSquare = styled.div`
   display: flex;
   max-width: 100%;
-  height: 500px;
+  height: 300px;
+  background-color: green;
 
   border-style: solid;
   border-color: royalblue;
@@ -59,7 +62,7 @@ const TopSquare = styled.div`
 const BottomSquare = styled.div`
   display: flex;
   max-width: 100%;
-  height: 500px;
+  height: 300px;
   background-color: gold;
 
   border-style: solid;
@@ -96,7 +99,7 @@ const TitleContainer = styled.div`
 `;
 
 const Title = styled.span`
-  font-size: 2rem;
+  font-size: 4rem;
 
   max-width: 50px;
   word-break: keep-all;
