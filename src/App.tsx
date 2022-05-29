@@ -19,27 +19,30 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Start />} />
-      </Routes>
-      <Routes>
-        <Route path="/login" element={<Login />} />
-      </Routes>
-      <Routes>
-        <Route path="/profile" element={<Profile />} />
-      </Routes>
-      <Routes>
-        <Route path="/welcome" element={<Welcome />} />
-      </Routes>
-      <Routes>
-        <Route path="/kakaocallback" element={<KakaoCallback />} />
-      </Routes>
-      <Routes>
-        <Route path="/navercallback" element={<NaverCallback />} />
-      </Routes>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-        </Routes>
+      {!isAuth && (
+        <>
+          <Routes>
+            <Route path="/" element={<Start />} />
+          </Routes>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+          </Routes>
+          <Routes>
+            <Route path="/profile" element={<Profile />} />
+          </Routes>
+          <Routes>
+            <Route path="/welcome" element={<Welcome />} />
+          </Routes>
+          <Routes>
+            <Route path="/kakaocallback" element={<KakaoCallback />} />
+          </Routes>
+          <Routes>
+            <Route path="/navercallback" element={<NaverCallback />} />
+          </Routes>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </>
       )}
       {isAuth && (
         <>
