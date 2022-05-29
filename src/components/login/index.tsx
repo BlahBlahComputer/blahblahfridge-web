@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import KaKaoLogin from 'react-kakao-login';
 
 import Logo from '#/asset/logo.svg';
 
@@ -43,7 +44,7 @@ const TopSquare = styled.div`
   height: 500px;
 
   border-style: solid;
-  border-color: skyblue;
+  border-color: royalblue;
   border-width: 10px 10px 5px 10px;
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
@@ -62,7 +63,7 @@ const BottomSquare = styled.div`
   background-color: gold;
 
   border-style: solid;
-  border-color: skyblue;
+  border-color: royalblue;
   border-width: 5px 10px 10px 10px;
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
