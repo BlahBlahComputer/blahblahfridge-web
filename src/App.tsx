@@ -10,6 +10,8 @@ import NaverCallback from '#/components/navercallback';
 
 import MainContainer from './components/MainContainer';
 import TopBar from './components/Topbar';
+import MyReview from './components/MyReview';
+import ChangeProfile from './components/changeprofile';
 
 function App() {
   const [isAuth, setIsAuth] = useState(true);
@@ -49,6 +51,12 @@ function App() {
           <TopBar imageUrl={imageUrl} />
           <Routes>
             <Route path="/" element={<MainContainer />} />
+          </Routes>
+          <Routes>
+            <Route path="/myreview" element={<MyReview />} />
+          </Routes>
+          <Routes>
+            <Route path="/changeprofile" element={<ChangeProfile />} />
           </Routes>
         </>
       )}

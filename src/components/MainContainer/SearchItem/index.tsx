@@ -23,7 +23,7 @@ const ItemLayout = styled.div`
   display: flex;
   flex-direction: row;
 
-  border: 5px solid #136ac0;
+  border: 5px solid royalblue;
   border-radius: 10px;
 
   padding: 8px;
