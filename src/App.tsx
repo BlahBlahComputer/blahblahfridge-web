@@ -12,6 +12,9 @@ import MainContainer from './components/MainContainer';
 import TopBar from './components/Topbar';
 import MyReview from './components/MyReview';
 import ChangeProfile from './components/changeprofile';
+import MenuIngredient from './components/MenuIngredient';
+import MenuRecipe from './components/MenuRecipe';
+import MenuReview from './components/MenuReview';
 
 function App() {
   const [isAuth, setIsAuth] = useState(true);
@@ -57,6 +60,15 @@ function App() {
           </Routes>
           <Routes>
             <Route path="/changeprofile" element={<ChangeProfile />} />
+          </Routes>
+          <Routes>
+            <Route path="/menu/ingredient" element={<MenuIngredient />} />
+          </Routes>
+          <Routes>
+            <Route path="/menu/recipe" element={<MenuRecipe />} />
+          </Routes>
+          <Routes>
+            <Route path="/menu/review" element={<MenuReview />} />
           </Routes>
         </>
       )}
