@@ -15,9 +15,11 @@ import ChangeProfile from './components/changeprofile';
 import MenuIngredient from './components/MenuIngredient';
 import MenuRecipe from './components/MenuRecipe';
 import MenuReview from './components/MenuReview';
+import Home from './components/home';
+import PictureCheck from './components/picturecheck';
 
 function App() {
-  const [isAuth, setIsAuth] = useState(false);
+  const [isAuth, setIsAuth] = useState(true);
   const [imageUrl, setImageUrl] = useState(
     'https://m.nongmin.com/upload/bbs/202108/20210821005357060/20210821005357060.jpg',
   );
@@ -50,7 +52,13 @@ function App() {
         <>
           <TopBar imageUrl={imageUrl} />
           <Routes>
+            <Route path="/home" element={<Home />} />
+          </Routes>
+          <Routes>
             <Route path="/" element={<MainContainer />} />
+          </Routes>
+          <Routes>
+            <Route path="/picturecheck" element={<PictureCheck />} />
           </Routes>
           <Routes>
             <Route path="/myreview" element={<MyReview />} />
