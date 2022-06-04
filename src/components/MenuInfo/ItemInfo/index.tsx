@@ -1,21 +1,20 @@
 import styled from 'styled-components';
 
-import { IReviewResult } from '#/@types/review';
+import { ISearchResult } from '#/@types/search';
 
-type Props = Omit<IReviewResult, 'foodId'>;
+type Props = Omit<ISearchResult, 'foodId'>;
 
-function ReviewItem({ foodImageUrl, foodName, date, star, reviewText }: Props) {
+function ItemInfo({ foodImageUrl, foodName, spendTime, category }: Props) {
   return (
     <ItemLayout>
-      <ItemDescription>
-        <ItemName>{foodName}</ItemName>
-        <ItemNameArea>
-          <ItemDate>{date}</ItemDate>
-          <ItemStar>{star}</ItemStar>
-        </ItemNameArea>
-      </ItemDescription>
       <ItemImage src={foodImageUrl ?? ''} />
-      <ItemReviewText>{reviewText}</ItemReviewText>
+      <ItemDescription>
+        <ItemNameArea>
+          <ItemCategory>{category}</ItemCategory>
+          <ItemSpendTime>{spendTime}m</ItemSpendTime>
+        </ItemNameArea>
+        <ItemName>{foodName}</ItemName>
+      </ItemDescription>
     </ItemLayout>
   );
 }
@@ -30,11 +29,11 @@ const ItemLayout = styled.div`
   padding: 8px;
 
   width: 100%;
-  height: 500px;
+  height: 300px;
 `;
 
 const ItemImage = styled.img`
-  height: 50%;
+  height: 70%;
 
   width: auto;
 `;
@@ -42,7 +41,7 @@ const ItemImage = styled.img`
 const ItemDescription = styled.div`
   display: flex;
 
-  flex-direction: row;
+  flex-direction: column;
 
   padding: 10px 0;
   margin-left: 10px;
@@ -54,7 +53,7 @@ const ItemDescription = styled.div`
 
 const ItemNameArea = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 
   margin-right: 10px;
 
@@ -63,20 +62,16 @@ const ItemNameArea = styled.div`
 `;
 
 const ItemName = styled.span`
+  margin-top: 10px;
   font-size: 1.8rem;
 `;
 
-const ItemDate = styled.span`
-  font-size: 1.2rem;
+const ItemSpendTime = styled.span`
+  font-size: 1.4rem;
 `;
 
-const ItemStar = styled.span`
-  font-size: 1.2rem;
+const ItemCategory = styled.span`
+  font-size: 1.4rem;
 `;
 
-const ItemReviewText = styled.span`
-  margin-top: 10px;
-  font-size: 1rem;
-`;
-
-export default ReviewItem;
+export default ItemInfo;

@@ -18,7 +18,7 @@ function useKakaoCallback() {
     const codeParam = query.get('code');
 
     if (codeParam) {
-      login(codeParam);
+      login({ code: codeParam });
     } else {
       // eslint-disable-next-line no-alert
       alert('올바르지 않은 접근입니다.');
@@ -26,7 +26,7 @@ function useKakaoCallback() {
     }
   }, []);
 
-  const { mutate: login } = useMutation((code: string) => kakaoLogin(code), {
+  const { mutate: login } = useMutation(kakaoLogin, {
     onSuccess: ({ data }) => {
       if (!data) {
         alert('무언가 잘못되었습니다.');
@@ -36,9 +36,6 @@ function useKakaoCallback() {
       localStorage.setItem('access_token', data);
       setIsAuth(true);
       window.location.href = '/';
-    },
-    onError: ({ responseMessage }) => {
-      alert(responseMessage);
     },
   });
 }

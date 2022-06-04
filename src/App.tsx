@@ -3,8 +3,6 @@ import { useRecoilState } from 'recoil';
 
 import Start from '#/components/start';
 import Login from '#/components/login';
-import Profile from '#/components/profile';
-import Welcome from '#/components/welcome';
 import KakaoCallback from '#/components/kakaocallback';
 import NaverCallback from '#/components/navercallback';
 
@@ -12,11 +10,7 @@ import MainContainer from './components/MainContainer';
 import TopBar from './components/Topbar';
 import MyReview from './components/MyReview';
 import ChangeProfile from './components/changeprofile';
-import MenuIngredient from './components/MenuIngredient';
-import MenuRecipe from './components/MenuRecipe';
-import MenuReview from './components/MenuReview';
 import { userAuthState } from './context/authContext';
-import PictureCheck from './components/picturecheck';
 import ReviewRegister from './components/reviewregister';
 
 function App() {
@@ -32,12 +26,6 @@ function App() {
           <Routes>
             <Route path="/login" element={<Login />} />
           </Routes>
-          {/* <Routes>
-            <Route path="/profile" element={<Profile />} />
-          </Routes> */}
-          {/* <Routes>
-            <Route path="/welcome" element={<Welcome />} />
-          </Routes> */}
           <Routes>
             <Route path="/kakaocallback" element={<KakaoCallback />} />
           </Routes>
@@ -71,13 +59,7 @@ function App() {
             <Route path="/changeprofile" element={<ChangeProfile />} />
           </Routes>
           <Routes>
-            <Route path="/menu/ingredient" element={<MenuIngredient />} />
-          </Routes>
-          <Routes>
-            <Route path="/menu/recipe" element={<MenuRecipe />} />
-          </Routes>
-          <Routes>
-            <Route path="/menu/review" element={<MenuReview />} />
+            <Route path="/menu/:menuId" element={<MenuInfo />} />
           </Routes>
         </>
       )}

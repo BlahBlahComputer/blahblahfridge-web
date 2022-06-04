@@ -1,20 +1,26 @@
+/* eslint-disable camelcase */
 import styled from 'styled-components';
 
-import { ISearchResult } from '#/@types/search';
+interface Props {
+  username: string;
+  userimage: string | null;
+  content: string;
+  rate: number;
+  created_at: string;
+}
 
-type Props = Omit<ISearchResult, 'foodId'>;
-
-function SearchItem({ foodImageUrl, foodName, spendTime, category }: Props) {
+function ReviewItem({ username, userimage, content, rate, created_at }: Props) {
   return (
     <ItemLayout>
-      <ItemImage src={foodImageUrl ?? ''} />
       <ItemDescription>
+        <ItemName>{username}</ItemName>
         <ItemNameArea>
-          <ItemCategory>{category}</ItemCategory>
-          <ItemSpendTime>{spendTime}m</ItemSpendTime>
+          <ItemDate>{created_at}</ItemDate>
+          <ItemStar>{rate}</ItemStar>
         </ItemNameArea>
-        <ItemName>{foodName}</ItemName>
       </ItemDescription>
+      <ItemImage src={userimage ?? ''} />
+      <ItemReviewText>{content}</ItemReviewText>
     </ItemLayout>
   );
 }
@@ -29,11 +35,11 @@ const ItemLayout = styled.div`
   padding: 8px;
 
   width: 100%;
-  height: 300px;
+  height: 500px;
 `;
 
 const ItemImage = styled.img`
-  height: 70%;
+  height: 50%;
 
   width: auto;
 `;
@@ -41,7 +47,7 @@ const ItemImage = styled.img`
 const ItemDescription = styled.div`
   display: flex;
 
-  flex-direction: column;
+  flex-direction: row;
 
   padding: 10px 0;
   margin-left: 10px;
@@ -53,7 +59,7 @@ const ItemDescription = styled.div`
 
 const ItemNameArea = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 
   margin-right: 10px;
 
@@ -62,16 +68,20 @@ const ItemNameArea = styled.div`
 `;
 
 const ItemName = styled.span`
-  margin-top: 10px;
   font-size: 1.8rem;
 `;
 
-const ItemSpendTime = styled.span`
-  font-size: 1.4rem;
+const ItemDate = styled.span`
+  font-size: 1.2rem;
 `;
 
-const ItemCategory = styled.span`
-  font-size: 1.4rem;
+const ItemStar = styled.span`
+  font-size: 1.2rem;
 `;
 
-export default SearchItem;
+const ItemReviewText = styled.span`
+  margin-top: 10px;
+  font-size: 1rem;
+`;
+
+export default ReviewItem;

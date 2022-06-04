@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import Lens from '#/asset/lens.svg';
 
@@ -17,13 +18,14 @@ function MainContainer() {
       <ResultArea>
         {searchResult.map((result) => {
           return (
-            <SearchItem
-              key={result.foodId}
-              foodImageUrl={result.foodImageUrl}
-              foodName={result.foodName}
-              spendTime={result.spendTime}
-              category={result.category}
-            />
+            <Link to={`/menu/${result.foodId}`} key={result.foodId}>
+              <SearchItem
+                foodImageUrl={result.foodImageUrl}
+                foodName={result.foodName}
+                spendTime={result.spendTime}
+                category={result.category}
+              />
+            </Link>
           );
         })}
       </ResultArea>
