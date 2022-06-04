@@ -29,6 +29,7 @@ function useKakaoCallback() {
   const { mutate: login } = useMutation(kakaoLogin, {
     onSuccess: ({ data }) => {
       if (!data) {
+        // eslint-disable-next-line no-alert
         alert('무언가 잘못되었습니다.');
         return;
       }

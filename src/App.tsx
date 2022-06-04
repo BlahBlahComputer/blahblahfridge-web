@@ -12,6 +12,9 @@ import MyReview from './components/MyReview';
 import ChangeProfile from './components/changeprofile';
 import { userAuthState } from './context/authContext';
 import ReviewRegister from './components/reviewregister';
+import MenuInfo from './components/MenuInfo';
+import PictureCheck from './components/picturecheck';
+import Home from './components/home';
 
 function App() {
   const [isAuth] = useRecoilState(userAuthState);
@@ -47,10 +50,7 @@ function App() {
             <Route path="/picturecheck" element={<PictureCheck />} />
           </Routes>
           <Routes>
-            <Route
-              path="/reviewregister"
-              element={<ReviewRegister imageUrlProfile={imageUrl} imageUrlPic={imageUrl} />}
-            />
+            <Route path="/reviewregister" element={<ReviewRegister imageUrlProfile="" imageUrlPic="" />} />
           </Routes>
           <Routes>
             <Route path="/myreview" element={<MyReview />} />
