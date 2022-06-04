@@ -1,8 +1,15 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
+import { useEffect } from 'react';
 
 import Logo from '#/asset/logo.svg';
 
 function Start() {
+  useEffect(() => {
+    setTimeout(() => {
+      window.location.href = '/login';
+    }, 1000);
+  }, []);
+
   return (
     <Text2>
       <Text3>&nbsp;어&nbsp;&nbsp;쩔&nbsp;</Text3>

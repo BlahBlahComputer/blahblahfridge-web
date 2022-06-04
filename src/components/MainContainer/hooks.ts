@@ -1,53 +1,28 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
+import { useQuery } from 'react-query';
 
 import { ISearchResult } from '#/@types/search';
 
+import { getMenuList } from './api';
+
 function useSearch() {
   const [keyword, setKeyword] = useState('');
-  const [searchResult, setSearchResult] = useState<ISearchResult[]>([
-    {
-      foodId: 1,
-      foodImageUrl: 'https://m.nongmin.com/upload/bbs/202108/20210821005357060/20210821005357060.jpg',
-      foodName: '김치찌개',
-      spendTime: 10,
-      category: '한식',
-    },
-    {
-      foodId: 1,
-      foodImageUrl: 'https://m.nongmin.com/upload/bbs/202108/20210821005357060/20210821005357060.jpg',
-      foodName: '김치찌개',
-      spendTime: 10,
-      category: '한식',
-    },
-    {
-      foodId: 1,
-      foodImageUrl: 'https://m.nongmin.com/upload/bbs/202108/20210821005357060/20210821005357060.jpg',
-      foodName: '김치찌개',
-      spendTime: 10,
-      category: '한식',
-    },
-    {
-      foodId: 1,
-      foodImageUrl: 'https://m.nongmin.com/upload/bbs/202108/20210821005357060/20210821005357060.jpg',
-      foodName: '김치찌개',
-      spendTime: 10,
-      category: '한식',
-    },
-    {
-      foodId: 1,
-      foodImageUrl: 'https://m.nongmin.com/upload/bbs/202108/20210821005357060/20210821005357060.jpg',
-      foodName: '김치찌개',
-      spendTime: 10,
-      category: '한식',
-    },
-    {
-      foodId: 1,
-      foodImageUrl: 'https://m.nongmin.com/upload/bbs/202108/20210821005357060/20210821005357060.jpg',
-      foodName: '김치찌개',
-      spendTime: 10,
-      category: '한식',
-    },
-  ]);
+
+  const { data: getMenuListData } = useQuery(['menuList'], () => getMenuList());
+
+  const searchResult = useMemo(
+    () =>
+      getMenuListData?.data?.map((d) => {
+        return {
+          foodId: d.id,
+          foodImageUrl: d.image,
+          foodName: d.name,
+          spendTime: d.time,
+          category: d.categroy,
+        } as ISearchResult;
+      }) ?? [],
+    [getMenuListData],
+  );
 
   return {
     keyword,

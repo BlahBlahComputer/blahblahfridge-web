@@ -1,18 +1,25 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { QueryClientProvider } from 'react-query';
+import { RecoilRoot } from 'recoil';
 
 import GlobalStyle from '#/styles/globalStyle';
 import { PageContainer } from '#/components/common/style';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import queryClient from './@api/reactQueryClient';
 
 render(
   <React.StrictMode>
-    <GlobalStyle />
-    <PageContainer>
-      <App />
-    </PageContainer>
+    <RecoilRoot>
+      <QueryClientProvider client={queryClient}>
+        <GlobalStyle />
+        <PageContainer>
+          <App />
+        </PageContainer>
+      </QueryClientProvider>
+    </RecoilRoot>
   </React.StrictMode>,
   document.getElementById('root'),
 );

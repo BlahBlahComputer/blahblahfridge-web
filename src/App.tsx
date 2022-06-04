@@ -1,10 +1,8 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import { useState } from 'react';
+import { useRecoilState } from 'recoil';
 
 import Start from '#/components/start';
 import Login from '#/components/login';
-import Profile from '#/components/profile';
-import Welcome from '#/components/welcome';
 import KakaoCallback from '#/components/kakaocallback';
 import NaverCallback from '#/components/navercallback';
 
@@ -12,18 +10,14 @@ import MainContainer from './components/MainContainer';
 import TopBar from './components/Topbar';
 import MyReview from './components/MyReview';
 import ChangeProfile from './components/changeprofile';
-import MenuIngredient from './components/MenuIngredient';
-import MenuRecipe from './components/MenuRecipe';
-import MenuReview from './components/MenuReview';
-import Home from './components/home';
-import PictureCheck from './components/picturecheck';
+import { userAuthState } from './context/authContext';
 import ReviewRegister from './components/reviewregister';
+import MenuInfo from './components/MenuInfo';
+import PictureCheck from './components/picturecheck';
+import Home from './components/home';
 
 function App() {
-  const [isAuth, setIsAuth] = useState(true);
-  const [imageUrl, setImageUrl] = useState(
-    'https://m.nongmin.com/upload/bbs/202108/20210821005357060/20210821005357060.jpg',
-  );
+  const [isAuth] = useRecoilState(userAuthState);
 
   return (
     <BrowserRouter>
@@ -36,12 +30,6 @@ function App() {
             <Route path="/login" element={<Login />} />
           </Routes>
           <Routes>
-            <Route path="/profile" element={<Profile />} />
-          </Routes>
-          <Routes>
-            <Route path="/welcome" element={<Welcome />} />
-          </Routes>
-          <Routes>
             <Route path="/kakaocallback" element={<KakaoCallback />} />
           </Routes>
           <Routes>
@@ -51,7 +39,7 @@ function App() {
       )}
       {isAuth && (
         <>
-          <TopBar imageUrl={imageUrl} />
+          <TopBar />
           <Routes>
             <Route path="/home" element={<Home />} />
           </Routes>
@@ -62,10 +50,7 @@ function App() {
             <Route path="/picturecheck" element={<PictureCheck />} />
           </Routes>
           <Routes>
-            <Route
-              path="/reviewregister"
-              element={<ReviewRegister imageUrlProfile={imageUrl} imageUrlPic={imageUrl} />}
-            />
+            <Route path="/reviewregister" element={<ReviewRegister imageUrlProfile="" imageUrlPic="" />} />
           </Routes>
           <Routes>
             <Route path="/myreview" element={<MyReview />} />
@@ -74,13 +59,7 @@ function App() {
             <Route path="/changeprofile" element={<ChangeProfile />} />
           </Routes>
           <Routes>
-            <Route path="/menu/ingredient" element={<MenuIngredient />} />
-          </Routes>
-          <Routes>
-            <Route path="/menu/recipe" element={<MenuRecipe />} />
-          </Routes>
-          <Routes>
-            <Route path="/menu/review" element={<MenuReview />} />
+            <Route path="/menu/:menuId" element={<MenuInfo />} />
           </Routes>
         </>
       )}
