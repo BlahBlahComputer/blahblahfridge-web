@@ -1,5 +1,5 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import { useState } from 'react';
+import { useRecoilState } from 'recoil';
 
 import Start from '#/components/start';
 import Login from '#/components/login';
@@ -15,15 +15,12 @@ import ChangeProfile from './components/changeprofile';
 import MenuIngredient from './components/MenuIngredient';
 import MenuRecipe from './components/MenuRecipe';
 import MenuReview from './components/MenuReview';
-import Home from './components/home';
+import { userAuthState } from './context/authContext';
 import PictureCheck from './components/picturecheck';
 import ReviewRegister from './components/reviewregister';
 
 function App() {
-  const [isAuth, setIsAuth] = useState(true);
-  const [imageUrl, setImageUrl] = useState(
-    'https://m.nongmin.com/upload/bbs/202108/20210821005357060/20210821005357060.jpg',
-  );
+  const [isAuth] = useRecoilState(userAuthState);
 
   return (
     <BrowserRouter>
@@ -35,12 +32,12 @@ function App() {
           <Routes>
             <Route path="/login" element={<Login />} />
           </Routes>
-          <Routes>
+          {/* <Routes>
             <Route path="/profile" element={<Profile />} />
-          </Routes>
-          <Routes>
+          </Routes> */}
+          {/* <Routes>
             <Route path="/welcome" element={<Welcome />} />
-          </Routes>
+          </Routes> */}
           <Routes>
             <Route path="/kakaocallback" element={<KakaoCallback />} />
           </Routes>
@@ -51,7 +48,7 @@ function App() {
       )}
       {isAuth && (
         <>
-          <TopBar imageUrl={imageUrl} />
+          <TopBar />
           <Routes>
             <Route path="/home" element={<Home />} />
           </Routes>

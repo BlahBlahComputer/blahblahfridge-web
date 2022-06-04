@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { QueryClientProvider } from 'react-query';
+import { RecoilRoot } from 'recoil';
 
 import GlobalStyle from '#/styles/globalStyle';
 import { PageContainer } from '#/components/common/style';
@@ -11,12 +12,14 @@ import queryClient from './@api/reactQueryClient';
 
 render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <GlobalStyle />
-      <PageContainer>
-        <App />
-      </PageContainer>
-    </QueryClientProvider>
+    <RecoilRoot>
+      <QueryClientProvider client={queryClient}>
+        <GlobalStyle />
+        <PageContainer>
+          <App />
+        </PageContainer>
+      </QueryClientProvider>
+    </RecoilRoot>
   </React.StrictMode>,
   document.getElementById('root'),
 );

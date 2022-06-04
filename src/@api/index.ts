@@ -28,9 +28,7 @@ export const createAxiosInstance = (auth: boolean, baseURL: string) => {
   });
 
   apiInstance.interceptors.request.use((request) => {
-    // const accessToken = localStorage.getItem('access_token');
-    const accessToken =
-      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJibGFoIiwiaWF0IjoxNjU0MzI2NjE4LCJzdWIiOiIyIiwiZXhwIjoxNjU0OTMxNDE4LCJpZCI6Miwicm9sZXMiOiJVU0VSIn0.kMOK315cue1bt5Hd_Cf4qooEySg4uwUKUwEzXhnDWOQ';
+    const accessToken = localStorage.getItem('access_token');
 
     if (auth) {
       if (accessToken) {
@@ -38,6 +36,8 @@ export const createAxiosInstance = (auth: boolean, baseURL: string) => {
           request.headers['X-AUTH-TOKEN'] = `${accessToken}`;
         }
       } else {
+        localStorage.removeItem('access_token');
+
         // eslint-disable-next-line prefer-promise-reject-errors
         return Promise.reject('로그인을 다시 해 주세요.');
       }

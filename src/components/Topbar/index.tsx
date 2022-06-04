@@ -1,12 +1,12 @@
 import styled from 'styled-components';
+import { useRecoilState } from 'recoil';
 
 import BackIcon from '#/asset/back-icon.svg';
+import { userImageState } from '#/context/authContext';
 
-interface Props {
-  imageUrl: string | null;
-}
+function TopBar() {
+  const [imageUrl] = useRecoilState(userImageState);
 
-function TopBar({ imageUrl }: Props) {
   return (
     <TopBarLayout>
       <BackArea
