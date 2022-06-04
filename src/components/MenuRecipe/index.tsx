@@ -44,7 +44,10 @@ function MenuRecipe() {
           리뷰
         </ButtonLayout2>
       </ButtonLayout>
-      <RecipeArea>랄라라라라랄라라랄</RecipeArea>
+      <RecipeArea>
+        <br />
+        랄라라라라랄라라랄
+      </RecipeArea>
     </ContainerLayout>
   );
 }

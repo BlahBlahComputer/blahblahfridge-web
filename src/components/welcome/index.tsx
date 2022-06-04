@@ -6,7 +6,7 @@ function Profile() {
   return (
     <LoginContainer>
       <TitleContainer>
-        <Title>내 냉장고에 온 걸 환영해!!!!!!!</Title>
+        <Title>내 냉장고에 온 걸 환영해!!!!!!!!!!</Title>
       </TitleContainer>
 
       <ImageContainer url={WelcomeLogo} />
@@ -43,9 +43,9 @@ const Start = styled.div`
   align-items: flex-end;
   justify-self: center;
 
-  margin-top: 100px;
-  margin-left: 30px;
-  margin-right: 30px;
+  margin-top: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
 
   font-size: 1.5rem;
   flex-direction: column;
@@ -63,12 +63,6 @@ const TitleContainer = styled.div`
 
   align-items: center;
   justify-content: space-between;
-
-  padding: 0 30px;
-
-  .logo {
-    height: 100%;
-  }
 `;
 const ImageContainer = styled.div<{
   url: string;
@@ -79,7 +73,7 @@ const ImageContainer = styled.div<{
   background-size: cover;
 
   width: 100%;
-  height: 490px;
+  height: 400px;
 
   align-items: center;
 

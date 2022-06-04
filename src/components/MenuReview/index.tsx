@@ -97,7 +97,7 @@ const ButtonLayout1 = styled.div`
   display: flex;
   justify-content: center;
 
-  width: 32%;
+  width: 36%;
   height: 32px;
   background-color: white;
 

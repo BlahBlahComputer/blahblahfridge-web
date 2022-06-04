@@ -17,7 +17,7 @@ import MenuRecipe from './components/MenuRecipe';
 import MenuReview from './components/MenuReview';
 
 function App() {
-  const [isAuth, setIsAuth] = useState(true);
+  const [isAuth, setIsAuth] = useState(false);
   const [imageUrl, setImageUrl] = useState(
     'https://m.nongmin.com/upload/bbs/202108/20210821005357060/20210821005357060.jpg',
   );
@@ -43,9 +43,6 @@ function App() {
           </Routes>
           <Routes>
             <Route path="/navercallback" element={<NaverCallback />} />
-          </Routes>
-          <Routes>
-            <Route path="/login" element={<Login />} />
           </Routes>
         </>
       )}

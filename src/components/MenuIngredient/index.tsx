@@ -44,7 +44,10 @@ function MenuIngredient() {
           리뷰
         </ButtonLayout2>
       </ButtonLayout>
-      <RecipeArea>랄라라라라랄라라랄</RecipeArea>
+      <RecipeArea>
+        <br />
+        랄라라라라랄라라랄
+      </RecipeArea>
     </ContainerLayout>
   );
 }
@@ -81,7 +84,7 @@ const ButtonLayout1 = styled.div`
   display: flex;
   justify-content: center;
 
-  width: 32%;
+  width: 36%;
   height: 32px;
   background-color: white;
 

@@ -6,7 +6,7 @@ function Profile() {
   return (
     <LoginContainer>
       <TitleContainer>
-        <Title>내 프로필..어쩌지?</Title>
+        <Title>내 프로필.. 어쩌지?</Title>
         <img src={Logo} alt="logo" className="logo" />
       </TitleContainer>
 
@@ -25,7 +25,7 @@ function Profile() {
 
       <Start
         onClick={() => {
-          alert('회원 등록 완료');
+          window.location.replace('/welcome');
         }}
       >
         <ButtonLayout>시 작 하 기</ButtonLayout>
@@ -47,7 +47,7 @@ const ButtonLayout = styled.div`
 const NameText = styled.span`
   font-size: 1.5rem;
 
-  margin-top: 100px;
+  margin-top: 70px;
 
   max-width: 50px;
   word-break: keep-all;
@@ -55,15 +55,13 @@ const NameText = styled.span`
 
 const Name = styled.input`
   display: flex;
-  width: 300px;
+  width: 200px;
   height: 30px;
 
   border: 5px solid royalblue;
   border-radius: 30px;
 
-  margin-top: 100px;
-  margin-left: 30px;
-  margin-right: 30px;
+  margin-top: 70px;
 
   align-items: flex-end;
   justify-self: center;
@@ -86,12 +84,12 @@ const Start = styled.div`
   align-items: flex-end;
   justify-self: center;
 
-  margin-top: 100px;
-  margin-left: 30px;
-  margin-right: 30px;
-
   font-size: 1.5rem;
   flex-direction: column;
+
+  margin-left: 20px;
+  margin-top: 70px;
+  margin-right: 20px;
 `;
 
 const Circle = styled.div`
@@ -104,7 +102,7 @@ const Circle = styled.div`
   background-color: lightgrey;
 
   margin: auto;
-  margin-top: 50px;
+  margin-top: 70px;
 
   flex-direction: column;
 `;
@@ -122,7 +120,7 @@ const TitleContainer = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  padding: 0 30px;
+  padding: 0 20px;
 
   .logo {
     height: 100%;
@@ -130,7 +128,7 @@ const TitleContainer = styled.div`
 `;
 
 const Title = styled.span`
-  font-size: 2rem;
+  font-size: 1.6rem;
 
   max-width: 50px;
   word-break: keep-all;
