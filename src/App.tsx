@@ -17,6 +17,7 @@ import MenuRecipe from './components/MenuRecipe';
 import MenuReview from './components/MenuReview';
 import Home from './components/home';
 import PictureCheck from './components/picturecheck';
+import ReviewRegister from './components/reviewregister';
 
 function App() {
   const [isAuth, setIsAuth] = useState(true);
@@ -59,6 +60,12 @@ function App() {
           </Routes>
           <Routes>
             <Route path="/picturecheck" element={<PictureCheck />} />
+          </Routes>
+          <Routes>
+            <Route
+              path="/reviewregister"
+              element={<ReviewRegister imageUrlProfile={imageUrl} imageUrlPic={imageUrl} />}
+            />
           </Routes>
           <Routes>
             <Route path="/myreview" element={<MyReview />} />
