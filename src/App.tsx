@@ -8,12 +8,8 @@ import NaverCallback from '#/components/navercallback';
 
 import MainContainer from './components/MainContainer';
 import TopBar from './components/Topbar';
-import MyReview from './components/MyReview';
-import ChangeProfile from './components/changeprofile';
 import { userAuthState } from './context/authContext';
-import ReviewRegister from './components/reviewregister';
 import MenuInfo from './components/MenuInfo';
-import PictureCheck from './components/picturecheck';
 import Home from './components/home';
 
 function App() {
@@ -46,7 +42,7 @@ function App() {
           <Routes>
             <Route path="/" element={<MainContainer />} />
           </Routes>
-          <Routes>
+          {/* <Routes>
             <Route path="/picturecheck" element={<PictureCheck />} />
           </Routes>
           <Routes>
@@ -57,7 +53,7 @@ function App() {
           </Routes>
           <Routes>
             <Route path="/changeprofile" element={<ChangeProfile />} />
-          </Routes>
+          </Routes> */}
           <Routes>
             <Route path="/menu/:menuId" element={<MenuInfo />} />
           </Routes>

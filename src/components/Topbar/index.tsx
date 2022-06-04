@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import { useRecoilState } from 'recoil';
 
 import BackIcon from '#/asset/back-icon.svg';
-import { userImageState } from '#/context/authContext';
+
+import useTopBar from './hooks';
 
 function TopBar() {
-  const [imageUrl] = useRecoilState(userImageState);
+  const { userImage } = useTopBar();
 
   return (
     <TopBarLayout>
@@ -17,7 +17,7 @@ function TopBar() {
         <img src={BackIcon} alt="back" />
       </BackArea>
       <ProfileCircle>
-        <img src={imageUrl ?? ''} alt="profile" className="profile" />
+        <img src={userImage ?? 'https://default.blahblahfridge.site/default.png'} alt="profile" className="profile" />
       </ProfileCircle>
     </TopBarLayout>
   );

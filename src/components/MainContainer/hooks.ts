@@ -1,18 +1,41 @@
-import { useMemo, useState } from 'react';
-import { useQuery } from 'react-query';
+import { useEffect, useMemo, useState } from 'react';
+import { useMutation } from 'react-query';
 
 import { ISearchResult } from '#/@types/search';
+import useDebouncedState from '#/utils/useDebounceState';
+import { ApiResponse } from '#/@api';
 
-import { getMenuList } from './api';
+import { getMenuList, GetMenuListReturn, getMenuListWithKeyword } from './api';
 
 function useSearch() {
   const [keyword, setKeyword] = useState('');
+  const { debounced: debouncedKeyword } = useDebouncedState(keyword, 500);
 
-  const { data: getMenuListData } = useQuery(['menuList'], () => getMenuList());
+  const [fetchData, setFetchData] = useState<ApiResponse<GetMenuListReturn[]> | undefined>(undefined);
+
+  useEffect(() => {
+    if (debouncedKeyword.length === 0) {
+      search();
+    } else {
+      searchWithKeyword(debouncedKeyword);
+    }
+  }, [debouncedKeyword]);
+
+  const { mutate: search } = useMutation(getMenuList, {
+    onSuccess: (data) => {
+      setFetchData(data);
+    },
+  });
+
+  const { mutate: searchWithKeyword } = useMutation(getMenuListWithKeyword, {
+    onSuccess: (data) => {
+      setFetchData(data);
+    },
+  });
 
   const searchResult = useMemo(
     () =>
-      getMenuListData?.data?.map((d) => {
+      fetchData?.data?.map((d) => {
         return {
           foodId: d.id,
           foodImageUrl: d.image,
@@ -21,7 +44,7 @@ function useSearch() {
           category: d.categroy,
         } as ISearchResult;
       }) ?? [],
-    [getMenuListData],
+    [fetchData],
   );
 
   return {
