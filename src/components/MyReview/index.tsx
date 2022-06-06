@@ -75,7 +75,7 @@ const ButtonLayout2 = styled.div`
 
   width: 49%;
   height: 38px;
-  background-color: royalblue;
+  background-color: #136ac0;
 
   border-radius: 10px;
   margin: auto;
@@ -92,7 +92,7 @@ const ButtonLayout = styled.div`
 
   width: 100%;
   height: 42px;
-  background-color: royalblue;
+  background-color: #136ac0;
 
   border-radius: 10px;
   font-size: 1.5rem;

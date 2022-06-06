@@ -48,7 +48,7 @@ const Start = styled.div`
   width: 100px;
   height: 40px;
 
-  background-color: royalblue;
+  background-color: #136ac0;
   border-radius: 20px;
 
   align-items: flex-end;
@@ -69,7 +69,7 @@ const Square = styled.div`
   height: calc(100vh - 200px);
 
   border-style: solid;
-  border-color: royalblue;
+  border-color: #136ac0;
   border-width: 10px 10px 5px 10px;
   border-radius: 50px;
 

@@ -62,7 +62,7 @@ const ButtonLayout1 = styled.div`
 
   width: 49%;
   height: 38px;
-  background-color: royalblue;
+  background-color: #136ac0;
 
   border-radius: 10px;
   margin: auto;
@@ -95,7 +95,7 @@ const ButtonLayout3 = styled.div`
 
   width: 100%;
   height: 42px;
-  background-color: royalblue;
+  background-color: #136ac0;
 
   border-radius: 10px;
   font-size: 1.5rem;
@@ -134,7 +134,7 @@ const Name = styled.input`
   width: 300px;
   height: 30px;
 
-  border: 5px solid royalblue;
+  border: 5px solid #136ac0;
   border-radius: 30px;
 
   margin-top: 100px;
@@ -156,7 +156,7 @@ const Start = styled.div`
   max-width: 100%;
   height: 50px;
 
-  background-color: royalblue;
+  background-color: #136ac0;
   border-radius: 30px;
 
   align-items: flex-end;
@@ -175,7 +175,7 @@ const Circle = styled.div`
   width: 300px;
   height: 300px;
 
-  border: 10px solid royalblue;
+  border: 10px solid #136ac0;
   border-radius: 50%;
   background-color: lightgrey;
 

@@ -52,7 +52,7 @@ const ContainerLayout = styled.div`
 
   align-items: center;
 
-  background-color: powderblue;
+  background-color: rgba(19, 106, 192, 0.3);
   border-radius: 10px;
 
   margin-top: 50px;
@@ -81,7 +81,7 @@ const ButtonLayout = styled.div`
 
   width: 90%;
   height: 42px;
-  background-color: royalblue;
+  background-color: #136ac0;
   margin-top: 20px;
 
   border-radius: 10px;
@@ -100,8 +100,14 @@ const NavButton = styled.div<{
 
   width: 32%;
   height: 32px;
-  ${({ isSelected }) => `
-      background-color: ${isSelected ? 'white' : 'royalblue'};
+  ${({ isSelected }) =>
+    isSelected
+      ? `
+      background-color: ${isSelected ? 'white' : '#136AC0'};
+      color: black;
+  `
+      : `
+    color: white;
   `}
 
   border-radius: 10px;

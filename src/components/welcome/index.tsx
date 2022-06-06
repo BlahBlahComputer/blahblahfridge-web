@@ -37,7 +37,7 @@ const Start = styled.div`
   max-width: 100%;
   height: 50px;
 
-  background-color: royalblue;
+  background-color: #136ac0;
   border-radius: 30px;
 
   align-items: flex-end;

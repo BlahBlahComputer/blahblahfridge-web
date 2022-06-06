@@ -44,7 +44,7 @@ const TopSquare = styled.div`
   //background-color: #03c75a;
 
   border-style: solid;
-  border-color: royalblue;
+  border-color: #136ac0;
   border-width: 10px 10px 5px 10px;
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
@@ -64,7 +64,7 @@ const BottomSquare = styled.div`
   //background-color: #fee500;
 
   border-style: solid;
-  border-color: royalblue;
+  border-color: #136ac0;
   border-width: 5px 10px 10px 10px;
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;

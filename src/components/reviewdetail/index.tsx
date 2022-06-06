@@ -75,7 +75,7 @@ const Start = styled.div`
   width: 90%;
   height: 40px;
 
-  background-color: royalblue;
+  background-color: #136ac0;
   border-radius: 20px;
 
   align-self: center;
@@ -93,7 +93,7 @@ const Square = styled.div`
   height: calc(100vh - 120px);
 
   border-style: solid;
-  border-color: royalblue;
+  border-color: #136ac0;
   border-width: 10px;
   border-radius: 30px;
 
@@ -167,7 +167,7 @@ const ReviewArea = styled.div`
   border-radius: 10px;
   border-width: 5px;
   border-style: solid;
-  border-color: royalblue;
+  border-color: #136ac0;
 
   overflow-y: scroll;
   font-size: 1rem;
@@ -182,7 +182,7 @@ const DeleteBtn = styled.div`
   width: 100%;
   height: 50px;
 
-  background: royalblue;
+  background: #136ac0;
   border-radius: 10px;
 
   display: flex;

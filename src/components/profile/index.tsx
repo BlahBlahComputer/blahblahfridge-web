@@ -58,7 +58,7 @@ const Name = styled.input`
   width: 200px;
   height: 30px;
 
-  border: 5px solid royalblue;
+  border: 5px solid #136ac0;
   border-radius: 30px;
 
   margin-top: 70px;
@@ -78,7 +78,7 @@ const Start = styled.div`
   max-width: 100%;
   height: 50px;
 
-  background-color: royalblue;
+  background-color: #136ac0;
   border-radius: 30px;
 
   align-items: flex-end;
@@ -97,7 +97,7 @@ const Circle = styled.div`
   width: 200px;
   height: 200px;
 
-  border: 10px solid royalblue;
+  border: 10px solid #136ac0;
   border-radius: 50%;
   background-color: lightgrey;
 

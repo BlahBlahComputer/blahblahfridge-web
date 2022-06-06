@@ -51,7 +51,7 @@ const SearchArea = styled.div`
 
   width: 100%;
   height: 42px;
-  background-color: royalblue;
+  background-color: #136ac0;
 
   border-radius: 10px;
 

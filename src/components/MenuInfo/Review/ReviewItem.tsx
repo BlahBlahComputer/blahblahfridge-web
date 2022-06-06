@@ -70,7 +70,7 @@ const ItemLayout = styled.div`
   display: flex;
   flex-direction: column;
 
-  border: 5px solid royalblue;
+  border: 5px solid #136ac0;
   border-radius: 10px;
 
   padding: 8px;

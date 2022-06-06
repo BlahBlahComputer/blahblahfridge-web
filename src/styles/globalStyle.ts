@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components'
-import reset from 'styled-reset'
+import { createGlobalStyle } from 'styled-components';
+import reset from 'styled-reset';
 
 const GlobalStyle = createGlobalStyle` 
     ${reset}
@@ -11,9 +11,9 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
     }
     body {
-        font-family: 'Black Han Sans', sans-serif;
+        font-family: 'Noto Sans', sans-serif;
         font-size: 14px;
     }
-`
+`;
 
-export default GlobalStyle
+export default GlobalStyle;
