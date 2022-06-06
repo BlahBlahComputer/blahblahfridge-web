@@ -10,6 +10,10 @@ interface Props {
 function Review({ menuId }: Props) {
   const { reviewData } = useReview(menuId);
 
+  if (reviewData?.data?.length === 0) {
+    return <ReviewArea>리뷰가 없다.. 어쩌지</ReviewArea>;
+  }
+
   return (
     <ReviewArea>
       {reviewData?.data?.map((r) => {
@@ -49,4 +53,6 @@ const ReviewArea = styled.div`
   font-size: 1.2rem;
 
   word-break: break-word;
+
+  padding: 8px;
 `;

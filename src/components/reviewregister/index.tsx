@@ -1,42 +1,36 @@
 import styled from 'styled-components';
 
-interface Props {
-  imageUrlProfile: string | null;
-  imageUrlPic: string | null;
-}
+import Star from '../star';
 
-function ReviewRegister({ imageUrlProfile, imageUrlPic }: Props) {
+import { useReviewRegister } from './hooks';
+
+function ReviewRegister() {
+  const { userName, userImage, reviewRegisterFunc, rate, setRate, content, setContent, today } = useReviewRegister();
+
   return (
-    <LoginContainer>
+    <RegisterContainer>
       <Square>
         <TitleContainer>
           <NameContainer>
             <ProfileCircle>
-              <img src={imageUrlProfile ?? ''} alt="profile" className="profile" />
+              <img src={userImage ?? ''} alt="profile" className="profile" />
             </ProfileCircle>
-            <Title>&nbsp;띵헌 {'>'}</Title>
+            <Title>
+              {userName} {'>'}
+            </Title>
           </NameContainer>
-          <Title>2022.05.22</Title>
+          <Title>{today}</Title>
         </TitleContainer>
-
         <ImageContainer>
-          <img src={imageUrlPic ?? ''} alt="pic" className="pic" />
+          <img src="" alt="pic" className="pic" />
         </ImageContainer>
-
-        <ReviewArea>
-          <br />
-          랄라라라라랄라라랄
-        </ReviewArea>
-
-        <Start
-          onClick={() => {
-            window.location.replace('/home');
-          }}
-        >
+        <ReviewArea value={content} onChange={(e) => setContent(e.target.value)} />
+        <Star rate={rate} setRate={setRate} isEditable starSize="50px" />
+        <Start onClick={reviewRegisterFunc}>
           <ButtonLayout>리뷰 등록하기</ButtonLayout>
         </Start>
       </Square>
-    </LoginContainer>
+    </RegisterContainer>
   );
 }
 
@@ -80,15 +74,14 @@ const Start = styled.div`
 
   flex-direction: column;
 
-  //margin-top: 10px;
-  margin-bottom: 20px;
+  margin-top: 10px;
 `;
 
 const Square = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 100%;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 120px);
 
   border-style: solid;
   border-color: royalblue;
@@ -102,7 +95,7 @@ const Square = styled.div`
   justify-items: center;
 `;
 
-const LoginContainer = styled.div`
+const RegisterContainer = styled.div`
   display: flex;
   flex-direction: column;
 
@@ -116,6 +109,7 @@ const TitleContainer = styled.div`
   padding: 20px 10px;
 
   justify-content: space-between;
+  align-items: center;
 `;
 
 const Title = styled.span`
@@ -124,7 +118,7 @@ const Title = styled.span`
   max-width: 150px;
   word-break: keep-all;
 
-  margin-top: 20px;
+  margin-left: 4px;
 `;
 
 const NameContainer = styled.div`
@@ -132,6 +126,7 @@ const NameContainer = styled.div`
   flex-direction: row;
 
   justify-content: flex-start;
+  align-items: center;
 `;
 
 const ProfileCircle = styled.div`
@@ -148,7 +143,7 @@ const ProfileCircle = styled.div`
   }
 `;
 
-const ReviewArea = styled.div`
+const ReviewArea = styled.textarea`
   display: flex;
   flex-direction: column;
 

@@ -39,4 +39,6 @@ const IngredientArea = styled.div`
   font-size: 1.2rem;
 
   word-break: break-word;
+
+  padding: 8px;
 `;

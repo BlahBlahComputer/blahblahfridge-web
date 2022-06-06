@@ -11,6 +11,7 @@ import TopBar from './components/Topbar';
 import { userAuthState } from './context/authContext';
 import MenuInfo from './components/MenuInfo';
 import Home from './components/home';
+import ReviewRegister from './components/reviewregister';
 
 function App() {
   const [isAuth] = useRecoilState(userAuthState);
@@ -56,6 +57,7 @@ function App() {
           </Routes> */}
           <Routes>
             <Route path="/menu/:menuId" element={<MenuInfo />} />
+            <Route path="/menu/:menuId/review/register" element={<ReviewRegister />} />
           </Routes>
         </>
       )}

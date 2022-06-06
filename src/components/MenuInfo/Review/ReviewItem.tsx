@@ -1,5 +1,9 @@
 /* eslint-disable camelcase */
+import { useMemo } from 'react';
 import styled from 'styled-components';
+import dayjs from 'dayjs';
+
+import Star from '#/components/star';
 
 interface Props {
   username: string;
@@ -10,16 +14,21 @@ interface Props {
 }
 
 function ReviewItem({ username, userimage, content, rate, created_at }: Props) {
+  const createString = useMemo(() => dayjs(created_at).format('YYYY.MM.DD'), [created_at]);
+
   return (
     <ItemLayout>
       <ItemDescription>
-        <ItemName>{username}</ItemName>
+        <ItemName>
+          {username}
+          {' >'}
+        </ItemName>
         <ItemNameArea>
-          <ItemDate>{created_at}</ItemDate>
-          <ItemStar>{rate}</ItemStar>
+          <ItemDate>{createString}</ItemDate>
+          <Star rate={rate} isEditable={false} starSize="20px" />
         </ItemNameArea>
       </ItemDescription>
-      <ItemImage src={userimage ?? ''} />
+      {userimage && <ItemImage src={userimage} />}
       <ItemReviewText>{content}</ItemReviewText>
     </ItemLayout>
   );
@@ -35,7 +44,7 @@ const ItemLayout = styled.div`
   padding: 8px;
 
   width: 100%;
-  height: 500px;
+  max-height: 500px;
 `;
 
 const ItemImage = styled.img`
@@ -68,15 +77,11 @@ const ItemNameArea = styled.div`
 `;
 
 const ItemName = styled.span`
-  font-size: 1.8rem;
+  font-size: 1rem;
 `;
 
 const ItemDate = styled.span`
-  font-size: 1.2rem;
-`;
-
-const ItemStar = styled.span`
-  font-size: 1.2rem;
+  font-size: 1rem;
 `;
 
 const ItemReviewText = styled.span`
