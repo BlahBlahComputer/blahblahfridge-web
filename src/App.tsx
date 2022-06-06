@@ -12,6 +12,7 @@ import { userAuthState } from './context/authContext';
 import MenuInfo from './components/MenuInfo';
 import Home from './components/home';
 import ReviewRegister from './components/reviewregister';
+import ReviewDetail from './components/reviewdetail';
 
 function App() {
   const [isAuth] = useRecoilState(userAuthState);
@@ -19,45 +20,25 @@ function App() {
   return (
     <BrowserRouter>
       {!isAuth && (
-        <>
-          <Routes>
-            <Route path="/" element={<Start />} />
-          </Routes>
-          <Routes>
-            <Route path="/login" element={<Login />} />
-          </Routes>
-          <Routes>
-            <Route path="/kakaocallback" element={<KakaoCallback />} />
-          </Routes>
-          <Routes>
-            <Route path="/navercallback" element={<NaverCallback />} />
-          </Routes>
-        </>
+        <Routes>
+          <Route path="/" element={<Start />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/kakaocallback" element={<KakaoCallback />} />
+          <Route path="/navercallback" element={<NaverCallback />} />
+        </Routes>
       )}
       {isAuth && (
         <>
           <TopBar />
           <Routes>
-            <Route path="/home" element={<Home />} />
-          </Routes>
-          <Routes>
             <Route path="/" element={<MainContainer />} />
-          </Routes>
-          {/* <Routes>
-            <Route path="/picturecheck" element={<PictureCheck />} />
-          </Routes>
-          <Routes>
-            <Route path="/reviewregister" element={<ReviewRegister imageUrlProfile="" imageUrlPic="" />} />
-          </Routes>
-          <Routes>
-            <Route path="/myreview" element={<MyReview />} />
-          </Routes>
-          <Routes>
-            <Route path="/changeprofile" element={<ChangeProfile />} />
-          </Routes> */}
-          <Routes>
+            <Route path="/home" element={<Home />} />
             <Route path="/menu/:menuId" element={<MenuInfo />} />
             <Route path="/menu/:menuId/review/register" element={<ReviewRegister />} />
+            <Route path="/menu/:menuId/review/:reviewId" element={<ReviewDetail />} />
+            {/* <Route path="/picturecheck" element={<PictureCheck />} />
+            <Route path="/myreview" element={<MyReview />} />
+            <Route path="/changeprofile" element={<ChangeProfile />} /> */}
           </Routes>
         </>
       )}

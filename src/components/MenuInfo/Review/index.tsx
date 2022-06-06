@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import useReview from './hooks';
@@ -18,14 +19,15 @@ function Review({ menuId }: Props) {
     <ReviewArea>
       {reviewData?.data?.map((r) => {
         return (
-          <ReviewItem
-            key={r.id}
-            username={r.username}
-            userimage={r.userimage}
-            content={r.content}
-            rate={r.rate}
-            created_at={r.created_at}
-          />
+          <Link to={`/menu/${menuId}/review/${r.id}`} key={r.id}>
+            <ReviewItem
+              username={r.username}
+              userimage={r.userimage}
+              content={r.content}
+              rate={r.rate}
+              created_at={r.created_at}
+            />
+          </Link>
         );
       })}
     </ReviewArea>

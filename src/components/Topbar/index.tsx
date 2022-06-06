@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import BackIcon from '#/asset/back-icon.svg';
 
@@ -9,13 +10,9 @@ function TopBar() {
 
   return (
     <TopBarLayout>
-      <BackArea
-        onClick={() => {
-          window.history.back();
-        }}
-      >
+      <Link to="/">
         <img src={BackIcon} alt="back" />
-      </BackArea>
+      </Link>
       <ProfileCircle>
         <img src={userImage ?? 'https://default.blahblahfridge.site/default.png'} alt="profile" className="profile" />
       </ProfileCircle>
