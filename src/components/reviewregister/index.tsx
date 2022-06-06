@@ -1,13 +1,27 @@
 import styled from 'styled-components';
 
 import defaultProfile from '#/asset/default-profile.png';
+import Plus from '#/asset/plus.svg';
 
 import Star from '../star';
 
 import { useReviewRegister } from './hooks';
 
 function ReviewRegister() {
-  const { userName, userImage, reviewRegisterFunc, rate, setRate, content, setContent, today } = useReviewRegister();
+  const {
+    userName,
+    userImage,
+    reviewRegisterFunc,
+    rate,
+    setRate,
+    content,
+    setContent,
+    today,
+    fileRef,
+    imageUploadFunc,
+    imageURL,
+    onChange,
+  } = useReviewRegister();
 
   return (
     <RegisterContainer>
@@ -23,23 +37,45 @@ function ReviewRegister() {
           </NameContainer>
           <Title>{today}</Title>
         </TitleContainer>
-        <ImageContainer>
-          <img src="" alt="pic" className="pic" />
-        </ImageContainer>
+        {imageURL ? (
+          <ImageContainer onClick={imageUploadFunc}>
+            <img src={imageURL} alt="pic" className="pic" />
+          </ImageContainer>
+        ) : (
+          <ImageUploadBtn onClick={imageUploadFunc}>
+            <img src={Plus} alt="plus" />
+          </ImageUploadBtn>
+        )}
         <ReviewArea value={content} onChange={(e) => setContent(e.target.value)} />
         <Star rate={rate} setRate={setRate} isEditable starSize="50px" />
         <Start onClick={reviewRegisterFunc}>
           <ButtonLayout>리뷰 등록하기</ButtonLayout>
         </Start>
       </Square>
+      <input ref={fileRef} type="file" accept="image/*" onChange={onChange} hidden />
     </RegisterContainer>
   );
 }
+
+const ImageUploadBtn = styled.div`
+  display: flex;
+
+  width: 90%;
+  height: 200px;
+
+  justify-content: center;
+  align-self: center;
+
+  margin-top: 10px;
+
+  background: rgba(0, 100, 255, 0.3);
+`;
 
 const ImageContainer = styled.div`
   display: flex;
 
   width: 90%;
+  height: 200px;
 
   justify-content: center;
   align-self: center;

@@ -26,6 +26,7 @@ function Review({ menuId }: Props) {
               content={r.content}
               rate={r.rate}
               created_at={r.created_at}
+              image={r.image}
             />
           </Link>
         );

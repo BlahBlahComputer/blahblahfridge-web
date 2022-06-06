@@ -1,12 +1,12 @@
 import { useRecoilState } from 'recoil';
 import { useMutation } from 'react-query';
 import { useParams } from 'react-router-dom';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo, useRef, useState } from 'react';
 import dayjs from 'dayjs';
 
 import { userImageState, userNameState } from '#/context/authContext';
 
-import { reviewRegister } from './api';
+import { reviewRegister, uploadImage } from './api';
 
 export function useReviewRegister() {
   const { menuId } = useParams<{ menuId: string }>();
@@ -18,6 +18,10 @@ export function useReviewRegister() {
   const [content, setContent] = useState<string>('');
 
   const today = useMemo(() => dayjs().format('YYYY.MM.DD'), []);
+
+  const fileRef = useRef<HTMLInputElement>(null);
+
+  const [imageURL, setImageURL] = useState<string | null>(null);
 
   const { mutate: register } = useMutation(reviewRegister, {
     onSuccess: ({ data }) => {
@@ -33,10 +37,27 @@ export function useReviewRegister() {
     register({
       menuId: Number(menuId),
       content,
-      image: null,
+      image: imageURL,
       rate,
     });
-  }, [register, menuId, content, rate]);
+  }, [register, menuId, content, rate, imageURL]);
+
+  const upload = async (file: File) => {
+    const res = await uploadImage({ file });
+    setImageURL(res);
+  };
+
+  const imageUploadFunc = () => {
+    if (!fileRef.current) return;
+
+    fileRef.current.click();
+  };
+
+  const onChange = async () => {
+    if (fileRef.current?.files && fileRef.current.files[0]) {
+      upload(fileRef.current.files[0]);
+    }
+  };
 
   return {
     userName,
@@ -47,5 +68,9 @@ export function useReviewRegister() {
     content,
     setContent,
     today,
+    fileRef,
+    imageUploadFunc,
+    imageURL,
+    onChange,
   };
 }

@@ -8,6 +8,7 @@ export interface ReviewDetailReturn extends ApiReturn {
   content: string;
   rate: number;
   created_at: string;
+  deletable: boolean;
 }
 
 export async function getReviewDetail({ reviewId }: { reviewId: number }): Promise<ApiResponse<ReviewDetailReturn>> {

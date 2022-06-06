@@ -9,12 +9,13 @@ import defaultProfile from '#/asset/default-profile.png';
 interface Props {
   username: string;
   userimage: string | null;
+  image: string | null;
   content: string;
   rate: number;
   created_at: string;
 }
 
-function ReviewItem({ username, userimage, content, rate, created_at }: Props) {
+function ReviewItem({ username, userimage, content, rate, created_at, image }: Props) {
   const createString = useMemo(() => dayjs(created_at).format('YYYY.MM.DD'), [created_at]);
 
   return (
@@ -38,7 +39,7 @@ function ReviewItem({ username, userimage, content, rate, created_at }: Props) {
           <Star rate={rate} isEditable={false} starSize="20px" />
         </ItemNameArea>
       </ItemDescription>
-      {userimage && userimage !== '' && <ItemImage src={userimage} />}
+      {image && image !== '' && <ItemImage src={image} />}
       <ItemReviewText>{content}</ItemReviewText>
     </ItemLayout>
   );

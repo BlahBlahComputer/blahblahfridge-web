@@ -4,6 +4,7 @@ export interface GetMenuReviewReturn extends ApiReturn {
   id: number;
   username: string;
   userimage: string | null;
+  image: string | null;
   content: string;
   rate: number;
   created_at: string;

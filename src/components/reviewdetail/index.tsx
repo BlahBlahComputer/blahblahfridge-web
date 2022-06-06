@@ -35,9 +35,11 @@ function ReviewDetail() {
         )}
         <ReviewArea>{reviewData?.data?.content}</ReviewArea>
         <Star rate={reviewData?.data?.rate ?? 0} isEditable={false} starSize="50px" />
-        <DeleteBtn onClick={deleteFunc}>
-          <span>리뷰 삭제</span>
-        </DeleteBtn>
+        {reviewData?.data?.deletable && (
+          <DeleteBtn onClick={deleteFunc}>
+            <span>리뷰 삭제</span>
+          </DeleteBtn>
+        )}
       </Square>
     </RegisterContainer>
   );
