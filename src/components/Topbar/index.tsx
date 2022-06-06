@@ -10,9 +10,14 @@ function TopBar() {
 
   return (
     <TopBarLayout>
-      <Link to="/">
+      <BackArea
+        onClick={(e) => {
+          e.preventDefault();
+          window.history.back();
+        }}
+      >
         <img src={BackIcon} alt="back" />
-      </Link>
+      </BackArea>
       <ProfileCircle>
         <img src={userImage ?? 'https://default.blahblahfridge.site/default.png'} alt="profile" className="profile" />
       </ProfileCircle>

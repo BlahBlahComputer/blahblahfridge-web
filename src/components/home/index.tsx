@@ -18,7 +18,7 @@ function Home() {
       </TopSquare>
       <BottomSquare
         onClick={() => {
-          window.location.replace('/');
+          window.location.replace('/menu');
         }}
       >
         <ButtonLayout>레 시 피 검 색</ButtonLayout>

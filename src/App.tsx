@@ -31,8 +31,8 @@ function App() {
         <>
           <TopBar />
           <Routes>
-            <Route path="/" element={<MainContainer />} />
-            <Route path="/home" element={<Home />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/menu" element={<MainContainer />} />
             <Route path="/menu/:menuId" element={<MenuInfo />} />
             <Route path="/menu/:menuId/review/register" element={<ReviewRegister />} />
             <Route path="/menu/:menuId/review/:reviewId" element={<ReviewDetail />} />
