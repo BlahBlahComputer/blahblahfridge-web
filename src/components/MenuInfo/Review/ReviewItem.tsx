@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import dayjs from 'dayjs';
 
 import Star from '#/components/star';
+import defaultProfile from '#/asset/default-profile.png';
 
 interface Props {
   username: string;
@@ -19,20 +20,51 @@ function ReviewItem({ username, userimage, content, rate, created_at }: Props) {
   return (
     <ItemLayout>
       <ItemDescription>
-        <ItemName>
-          {username}
-          {' >'}
-        </ItemName>
+        <NameContainer>
+          <ProfileCircle>
+            {userimage && userimage !== '' ? (
+              <img src={userimage} alt="profile" className="profile" />
+            ) : (
+              <img src={defaultProfile} alt="profile" className="profile" />
+            )}
+          </ProfileCircle>
+          <ItemName>
+            {username}
+            {' >'}
+          </ItemName>
+        </NameContainer>
         <ItemNameArea>
           <ItemDate>{createString}</ItemDate>
           <Star rate={rate} isEditable={false} starSize="20px" />
         </ItemNameArea>
       </ItemDescription>
-      {userimage && <ItemImage src={userimage} />}
+      {userimage && userimage !== '' && <ItemImage src={userimage} />}
       <ItemReviewText>{content}</ItemReviewText>
     </ItemLayout>
   );
 }
+
+const NameContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  justify-content: flex-start;
+  align-items: center;
+`;
+
+const ProfileCircle = styled.div`
+  width: 20px;
+  height: 20px;
+
+  border-radius: 70%;
+  overflow: hidden;
+
+  .profile {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`;
 
 const ItemLayout = styled.div`
   display: flex;

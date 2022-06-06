@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import defaultProfile from '#/asset/default-profile.png';
+
 import Star from '../star';
 
 import { useReviewRegister } from './hooks';
@@ -13,7 +15,7 @@ function ReviewRegister() {
         <TitleContainer>
           <NameContainer>
             <ProfileCircle>
-              <img src={userImage ?? ''} alt="profile" className="profile" />
+              <img src={userImage ?? defaultProfile} alt="profile" className="profile" />
             </ProfileCircle>
             <Title>
               {userName} {'>'}

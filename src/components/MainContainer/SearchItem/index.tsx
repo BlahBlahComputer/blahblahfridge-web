@@ -8,7 +8,7 @@ type Props = Omit<ISearchResult, 'foodId'>;
 function SearchItem({ foodImageUrl, foodName, spendTime, category }: Props) {
   return (
     <ItemLayout>
-      <ItemImage src={foodImageUrl ?? ''} />
+      {foodImageUrl && <ItemImage src={foodImageUrl} />}
       <ItemDescription>
         <ItemNameArea>
           <ItemName>{foodName}</ItemName>
@@ -50,8 +50,7 @@ const ItemLayout = styled.div`
 
 const ItemImage = styled.img`
   height: 100%;
-
-  width: auto;
+  max-width: 100px;
 `;
 
 const ItemDescription = styled.div`

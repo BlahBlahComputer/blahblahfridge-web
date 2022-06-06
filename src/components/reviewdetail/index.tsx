@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import dayjs from 'dayjs';
 
+import defaultProfile from '#/asset/default-profile.png';
+
 import Star from '../star';
 
 import { useReviewDetail } from './hooks';
@@ -14,7 +16,11 @@ function ReviewDetail() {
         <TitleContainer>
           <NameContainer>
             <ProfileCircle>
-              <img src={reviewData?.data?.userimage ?? ''} alt="profile" className="profile" />
+              {reviewData?.data?.userimage && reviewData?.data?.userimage !== '' ? (
+                <img src={reviewData?.data?.userimage} alt="profile" className="profile" />
+              ) : (
+                <img src={defaultProfile} alt="profile" className="profile" />
+              )}
             </ProfileCircle>
             <Title>
               {reviewData?.data?.username} {'>'}
@@ -22,9 +28,11 @@ function ReviewDetail() {
           </NameContainer>
           <Title>{dayjs(reviewData?.data?.created_at).format('YYYY.MM.DD')}</Title>
         </TitleContainer>
-        <ImageContainer>
-          <img src="" alt="pic" className="pic" />
-        </ImageContainer>
+        {reviewData?.data?.image && reviewData.data.image !== '' && (
+          <ImageContainer>
+            <img src={reviewData.data.image} alt="pic" className="pic" />
+          </ImageContainer>
+        )}
         <ReviewArea>{reviewData?.data?.content}</ReviewArea>
         <Star rate={reviewData?.data?.rate ?? 0} isEditable={false} starSize="50px" />
         <DeleteBtn onClick={deleteFunc}>
