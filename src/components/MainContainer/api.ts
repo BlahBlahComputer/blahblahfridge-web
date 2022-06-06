@@ -6,7 +6,7 @@ export interface GetMenuListReturn extends ApiReturn {
   name: string;
   recipe: string;
   time: number;
-  categroy: string;
+  category: string;
 }
 
 export async function getMenuList(): Promise<ApiResponse<GetMenuListReturn[]>> {
