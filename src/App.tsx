@@ -13,6 +13,8 @@ import MenuInfo from './components/MenuInfo';
 import Home from './components/home';
 import ReviewRegister from './components/reviewregister';
 import ReviewDetail from './components/reviewdetail';
+import Analyze from './components/analyze';
+import AnalyzeResult from './components/analyzeresult';
 
 function App() {
   const [isAuth] = useRecoilState(userAuthState);
@@ -36,6 +38,8 @@ function App() {
             <Route path="/menu/:menuId" element={<MenuInfo />} />
             <Route path="/menu/:menuId/review/register" element={<ReviewRegister />} />
             <Route path="/menu/:menuId/review/:reviewId" element={<ReviewDetail />} />
+            <Route path="/analyze" element={<Analyze />} />
+            <Route path="/analyze/result" element={<AnalyzeResult />} />
             {/* <Route path="/picturecheck" element={<PictureCheck />} />
             <Route path="/myreview" element={<MyReview />} />
             <Route path="/changeprofile" element={<ChangeProfile />} /> */}

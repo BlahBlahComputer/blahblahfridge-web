@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import BackIcon from '#/asset/back-icon.svg';
+import Default from '#/asset/default-profile.png';
 
 import useTopBar from './hooks';
 
@@ -18,7 +19,11 @@ function TopBar() {
         <img src={BackIcon} alt="back" />
       </BackArea>
       <ProfileCircle>
-        <img src={userImage ?? 'https://default.blahblahfridge.site/default.png'} alt="profile" className="profile" />
+        {userImage ? (
+          <img src={userImage} alt="profile" className="profile" />
+        ) : (
+          <img src={Default} alt="profile" className="profile" />
+        )}
       </ProfileCircle>
     </TopBarLayout>
   );
@@ -36,7 +41,7 @@ const TopBarLayout = styled.div`
   justify-content: space-between;
 
   background: white;
-  z-index: 9999;
+  z-index: 10;
 `;
 
 const BackArea = styled.div`
