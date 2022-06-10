@@ -1,6 +1,10 @@
 import styled, { keyframes } from 'styled-components';
 
+import useAnalyze from './hooks';
+
 function Analyze() {
+  useAnalyze();
+
   return (
     <AnalyzeContainer>
       <AnalyzeModal>

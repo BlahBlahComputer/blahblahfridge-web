@@ -14,7 +14,7 @@ function Login() {
       <TopSquare
         onClick={() => {
           window.location.href =
-            'https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=oANn_XItQT8dwVAmksWz&state=blah&redirect_uri=http://localhost:3000/navercallback';
+            'https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=oANn_XItQT8dwVAmksWz&state=blah&redirect_uri=https://www.blahblahfridge.site/navercallback';
         }}
       >
         <ImageContainer1 url={NaverLogin} />
@@ -22,7 +22,7 @@ function Login() {
       <BottomSquare
         onClick={() => {
           window.location.href =
-            'https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=0bc3192a45ac1d9e2f8c80f9ae7dc2b2&redirect_uri=http://localhost:3000/kakaocallback';
+            'https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=0bc3192a45ac1d9e2f8c80f9ae7dc2b2&redirect_uri=https://www.blahblahfridge.site/kakaocallback';
         }}
       >
         <ImageContainer2 url={KakaoLogin} />
