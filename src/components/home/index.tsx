@@ -41,7 +41,7 @@ const TopSquare = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 100%;
-  height: calc((100vh - 200px) / 2);
+  height: calc((100vh - 300px) / 2);
   //background-color: #03c75a;
 
   border-style: solid;
@@ -61,7 +61,7 @@ const TopSquare = styled.div`
 const BottomSquare = styled.div`
   display: flex;
   max-width: 100%;
-  height: calc((100vh - 200px) / 2);
+  height: calc((100vh - 300px) / 2);
   //background-color: #fee500;
 
   border-style: solid;

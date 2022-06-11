@@ -13,7 +13,7 @@ function TopBar() {
       <BackArea
         onClick={(e) => {
           e.preventDefault();
-          window.history.back();
+          window.location.replace('/');
         }}
       >
         <img src={BackIcon} alt="back" />

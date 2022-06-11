@@ -56,6 +56,7 @@ const ReviewArea = styled.div`
   font-size: 1.2rem;
 
   word-break: break-word;
+  white-space: pre-line;
 
   padding: 8px;
 `;
