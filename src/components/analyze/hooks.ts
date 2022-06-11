@@ -1,6 +1,6 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useMutation } from 'react-query';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 
 import { analyzeState } from '#/context/analyzeContext';
@@ -11,7 +11,11 @@ function useAnalyze() {
   const useQueryParam = () => new URLSearchParams(useLocation().search);
   const query = useQueryParam();
 
-  const [analyzeResult, setAnalyzeResult] = useRecoilState(analyzeState);
+  const navigate = useNavigate();
+
+  const [, setAnalyzeResult] = useRecoilState(analyzeState);
+
+  const [finish, setFinish] = useState(false);
 
   useEffect(() => {
     const keyParam = query.get('key');
@@ -29,12 +33,17 @@ function useAnalyze() {
     onSuccess: ({ data }) => {
       if (!data) {
         alert('무언가 잘못되었습니다.');
-        return;
       }
-
-      setAnalyzeResult(data);
-      window.location.href = '/analyze/result';
+      // window.location.href = '/analyze/result';
+      setAnalyzeResult(data ?? []);
+      setFinish(true);
     },
+  });
+
+  useEffect(() => {
+    if (finish) {
+      navigate('/analyze/result');
+    }
   });
 }
 

@@ -2,18 +2,18 @@ import styled from 'styled-components';
 
 import Logo from '#/asset/logo.svg';
 
+import { useImageUpload } from './hooks';
+
 function Home() {
+  const { fileRef, imageUploadFunc, onChange } = useImageUpload();
+
   return (
     <LoginContainer>
       <TitleContainer>
         <Title>내 냉장고.. 어쩌지?</Title>
         <img src={Logo} alt="logo" className="logo" />
       </TitleContainer>
-      <TopSquare
-        onClick={() => {
-          alert('camera');
-        }}
-      >
+      <TopSquare onClick={imageUploadFunc}>
         <ButtonLayout>사 진 찍 기</ButtonLayout>
       </TopSquare>
       <BottomSquare
@@ -23,6 +23,7 @@ function Home() {
       >
         <ButtonLayout>레 시 피 검 색</ButtonLayout>
       </BottomSquare>
+      <input ref={fileRef} type="file" accept="image/*" onChange={onChange} hidden />
     </LoginContainer>
   );
 }

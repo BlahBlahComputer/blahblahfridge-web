@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
+import { useEffect } from 'react';
 
 import { analyzeState } from '#/context/analyzeContext';
 
@@ -9,13 +10,17 @@ import SearchItem from '../MainContainer/SearchItem';
 function AnalyzeResult() {
   const [analyzeResult] = useRecoilState(analyzeState);
 
+  useEffect(() => {
+    console.log(analyzeResult);
+  }, []);
+
   return (
     <ContainerLayout>
       <ResultArea>
         {analyzeResult.length !== 0 ? (
           analyzeResult.map((result) => {
             return (
-              <Link to={`/menu/${result.id}`} key={result.id}>
+              <Link to={`/menu/${result.id}`} key={result.id} style={{ width: '100%' }}>
                 <SearchItem
                   foodImageUrl={result.image}
                   foodName={result.name}
