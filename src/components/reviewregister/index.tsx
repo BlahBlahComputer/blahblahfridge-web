@@ -74,7 +74,7 @@ const ImageUploadBtn = styled.div`
 const ImageContainer = styled.div`
   display: flex;
 
-  height: 100%;
+  width: 90%;
 
   justify-content: center;
   align-self: center;

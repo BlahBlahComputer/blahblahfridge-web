@@ -81,9 +81,9 @@ const ItemLayout = styled.div`
 `;
 
 const ItemImage = styled.img`
-  height: 50%;
+  //height: 100%;
 
-  width: auto;
+  width: 100%;
 `;
 
 const ItemDescription = styled.div`

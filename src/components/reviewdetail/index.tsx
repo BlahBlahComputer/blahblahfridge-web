@@ -48,7 +48,8 @@ function ReviewDetail() {
 const ImageContainer = styled.div`
   display: flex;
 
-  width: 90%;
+  width: auto;
+  height: 100px;
 
   justify-content: center;
   align-self: center;
