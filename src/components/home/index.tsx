@@ -24,7 +24,7 @@ function Home() {
       >
         <ButtonLayout>레 시 피 검 색</ButtonLayout>
       </BottomSquare>
-      <input ref={fileRef} type="file" accept="image/*" onChange={onChange} hidden />
+      <input ref={fileRef} type="file" accept="image/*;capture=camera" onChange={onChange} hidden />
       {loading && <Upload />}
     </LoginContainer>
   );
