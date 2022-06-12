@@ -3,9 +3,10 @@ import styled from 'styled-components';
 import Logo from '#/asset/logo.svg';
 
 import { useImageUpload } from './hooks';
+import Upload from './components/Upload';
 
 function Home() {
-  const { fileRef, imageUploadFunc, onChange } = useImageUpload();
+  const { fileRef, imageUploadFunc, onChange, loading } = useImageUpload();
 
   return (
     <LoginContainer>
@@ -24,6 +25,7 @@ function Home() {
         <ButtonLayout>레 시 피 검 색</ButtonLayout>
       </BottomSquare>
       <input ref={fileRef} type="file" accept="image/*" onChange={onChange} hidden />
+      {loading && <Upload />}
     </LoginContainer>
   );
 }

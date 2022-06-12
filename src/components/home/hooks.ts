@@ -1,9 +1,11 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 
 import { uploadImage } from './api';
 
 export function useImageUpload() {
   const fileRef = useRef<HTMLInputElement>(null);
+
+  const [loading, setLoading] = useState(false);
 
   const imageUploadFunc = () => {
     if (!fileRef.current) return;
@@ -19,7 +21,9 @@ export function useImageUpload() {
 
   const onChange = async () => {
     if (fileRef.current?.files && fileRef.current.files[0]) {
-      upload(fileRef.current.files[0]);
+      setLoading(true);
+      await upload(fileRef.current.files[0]);
+      setLoading(false);
     }
   };
 
@@ -27,5 +31,6 @@ export function useImageUpload() {
     fileRef,
     imageUploadFunc,
     onChange,
+    loading,
   };
 }
